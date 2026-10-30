@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>دليل مريض أويكلي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Readex+Pro:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap" dir="rtl" lang="ar">
+
+<header class="hero">
+  <span class="eyebrow">دليل تثقيفي للمرضى · إنسولين أسبوعي</span>
+  <h1>أويكلي <span class="latin" style="font-size:.55em;color:var(--muted)">Awiqli</span><br>إنسولين <span class="w">مرة واحدة</span> في الأسبوع</h1>
+  <p class="lede">أويكلي (إنسولين آيكوديك) إنسولين قاعدي طويل المفعول يُحقن تحت الجلد مرة واحدة أسبوعيًا، في اليوم نفسه من كل أسبوع، لعلاج السكري من النوع الثاني لدى البالغين والأطفال من عمر 10 سنوات فأكثر، مع الغذاء الصحي والنشاط البدني.</p>
+  <div class="facts">
+    <div class="fact"><b class="num">1×</b><span>حقنة واحدة أسبوعيًا بدل الحقن اليومية</span></div>
+    <div class="fact"><b class="num latin">U-700</b><span>تركيز عالٍ: 700 وحدة في كل مل</span></div>
+    <div class="fact"><b class="num">10 – 700</b><span>وحدة في الحقنة الواحدة، تزيد 10 وحدات في كل مرة</span></div>
+    <div class="fact"><b>القلم فقط</b><span>لا تسحب الدواء بحقنة أبدًا</span></div>
+  </div>
+  <div class="weekstrip" aria-label="مثال: يوم الحقن الأسبوعي هو الأحد">
+    <div class="day on">الأحد<br>حقنة</div><div class="day">الإثنين</div><div class="day">الثلاثاء</div><div class="day">الأربعاء</div><div class="day">الخميس</div><div class="day">الجمعة</div><div class="day">السبت</div>
+  </div>
+  <p class="weeknote">مثال: اختر يومًا ثابتًا يناسبك، وكرّر الحقنة في اليوم نفسه كل أسبوع.</p>
+</header>
+
+<div class="notice warn" role="note">
+  <strong>تنبيه مهم قبل الاستخدام</strong>
+  <p>جرعة أويكلي تختلف عن جرعة الإنسولين اليومي. استخدم دائمًا الجرعة التي وصفها طبيبك، وتأكد من اسم الدواء على القلم قبل كل حقنة، وانظر إلى الرقم الظاهر في نافذة القلم قبل الحقن. لا تختر أعلى جرعة (700 وحدة) إلا إذا وصفها لك الطبيب.</p>
+</div>
+
+<!-- Calculator -->
+<section id="calc" aria-labelledby="calc-h">
+  <h2 id="calc-h">حاسبة جرعة أويكلي</h2>
+  <p class="sub">تساعدك هذه الحاسبة على فهم جرعتك ومراجعتها مع طبيبك. تتبع الأرقام النشرة الدوائية الرسمية للدواء. لا تغيّر جرعتك بنفسك بناءً على النتيجة؛ الطبيب هو من يحدد الجرعة.</p>
+
+  <div class="calc">
+    <div class="tabs" role="tablist" aria-label="نوع الحساب">
+      <button class="tab" role="tab" id="t-switch" aria-controls="p-switch" aria-selected="true">أنتقل من إنسولين يومي</button>
+      <button class="tab" role="tab" id="t-new" aria-controls="p-new" aria-selected="false" tabindex="-1">أبدأ الإنسولين لأول مرة</button>
+      <button class="tab" role="tab" id="t-missed" aria-controls="p-missed" aria-selected="false" tabindex="-1">نسيت جرعتي</button>
+      <button class="tab" role="tab" id="t-pen" aria-controls="p-pen" aria-selected="false" tabindex="-1">هل يكفي القلم؟</button>
+    </div>
+
+    <!-- Switching -->
+    <div class="panel" role="tabpanel" id="p-switch" aria-labelledby="t-switch">
+      <p>إذا كنت تستخدم إنسولينًا قاعديًا يوميًا (مثل لانتوس، توجيو، تريسيبا، ليفيمير، أو NPH)، اكتب مجموع وحداته في اليوم الواحد. إذا كنت تأخذه مرتين يوميًا، اكتب الجرعتين.</p>
+      <div class="row">
+        <div class="field">
+          <label for="dose-a">جرعة الإنسولين القاعدي اليومية (وحدة)</label>
+          <input type="number" id="dose-a" inputmode="decimal" min="1" max="200" step="0.5" value="20">
+          <span class="hint">الجرعة الوحيدة، أو جرعة الصباح</span>
+        </div>
+        <div class="field">
+          <label for="dose-b">جرعة المساء إن وُجدت (وحدة)</label>
+          <input type="number" id="dose-b" inputmode="decimal" min="0" max="200" step="0.5" placeholder="0">
+          <span class="hint">اتركها فارغة إذا كنت تأخذه مرة واحدة</span>
+        </div>
+        <div class="field">
+          <label for="last-date">تاريخ آخر جرعة يومية (اختياري)</label>
+          <input type="date" id="last-date">
+          <span class="hint">لنحسب مواعيد الأسابيع</span>
+        </div>
+      </div>
+      <p id="sw-total" class="num"></p>
+      <p id="sw-err" class="err" hidden></p>
+      <div class="results" id="sw-results">
+        <div class="wk">
+          <h3>الأسبوع الأول <span class="example-tag" id="ex1">مثال</span></h3>
+          <div class="pen" aria-hidden="true"><div class="cap"></div><div class="barrel"><div class="window" id="w1">210</div></div><div class="knob"></div></div>
+          <p><b class="num" id="w1t">210</b> وحدة، جرعة لمرة واحدة فقط</p>
+          <p class="when" id="w1d">في اليوم التالي لآخر جرعة من الإنسولين اليومي</p>
+          <div class="split" id="w1s" hidden></div>
+          <p class="how">الجرعة اليومية × 7 × 1.5، ثم التقريب لأقرب 10 وحدات. هذه الجرعة الأولى أعلى عمدًا وتُعطى مرة واحدة فقط.</p>
+        </div>
+        <div class="wk">
+          <h3>الأسبوع الثاني</h3>
+          <div class="pen" aria-hidden="true"><div class="cap"></div><div class="barrel"><div class="window" id="w2">140</div></div><div class="knob"></div></div>
+          <p><b class="num" id="w2t">140</b> وحدة</p>
+          <p class="when" id="w2d">بعد 7 أيام من الجرعة الأولى</p>
+          <div class="split" id="w2s" hidden></div>
+          <p class="how">الجرعة اليومية × 7، ثم التقريب لأقرب 10 وحدات.</p>
+        </div>
+        <div class="wk later">
+          <h3>الأسبوع الثالث وما بعده</h3>
+          <p>يحددها طبيبك حسب قراءات السكر لديك وهدف العلاج.</p>
+          <p class="when" id="w3d">يُعدّل الطبيب الجرعة بدءًا من جرعة الأسبوع الثاني</p>
+        </div>
+      </div>
+      <div class="notice info">
+        <p>عند الانتقال إلى أويكلي، قِس السكر أكثر من المعتاد. قد يحتاج طبيبك إلى تعديل الإنسولين السريع أو أدوية السكري الأخرى.</p>
+      </div>
+      <details class="table-toggle">
+        <summary>جدول الجرعات من النشرة الدوائية (أمثلة)</summary>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>الجرعة اليومية السابقة</th><th>الأسبوع الأول</th><th>الأسبوع الثاني</th></tr></thead>
+            <tbody id="ref-table"></tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+
+    <!-- New to insulin -->
+    <div class="panel" role="tabpanel" id="p-new" aria-labelledby="t-new" hidden>
+      <p>إذا لم تستخدم الإنسولين من قبل، فالجرعة الابتدائية الموصى بها في النشرة الدوائية ثابتة:</p>
+      <div class="results">
+        <div class="wk">
+          <h3>جرعة البداية</h3>
+          <div class="pen" aria-hidden="true"><div class="cap"></div><div class="barrel"><div class="window">70</div></div><div class="knob"></div></div>
+          <p><b class="num">70</b> وحدة مرة واحدة أسبوعيًا، في اليوم نفسه كل أسبوع</p>
+        </div>
+        <div class="wk later">
+          <h3>بعد ذلك</h3>
+          <p>يرفع الطبيب الجرعة أو يخفضها تدريجيًا حسب قراءات السكر. سجّل قراءاتك وأحضرها معك في كل زيارة.</p>
+        </div>
+      </div>
+      <div class="notice info"><p>كبار السن: يبدأ الطبيب عادة بحذر أكبر ويرفع الجرعة ببطء، لأن انخفاض السكر قد يكون أصعب في ملاحظته.</p></div>
+    </div>
+
+    <!-- Missed dose -->
+    <div class="panel" role="tabpanel" id="p-missed" aria-labelledby="t-missed" hidden>
+      <div class="field">
+        <span id="missed-q" style="font-weight:600">كم يومًا مضى منذ موعد جرعتك الفائتة؟</span>
+        <div class="chips" role="group" aria-labelledby="missed-q" id="missed-chips"></div>
+      </div>
+      <div id="missed-out" class="notice good" aria-live="polite"></div>
+      <p class="sub">في كل الحالات، قِس السكر أكثر من المعتاد بعد نسيان جرعة.</p>
+    </div>
+
+    <!-- Pen -->
+    <div class="panel" role="tabpanel" id="p-pen" aria-labelledby="t-pen" hidden>
+      <h3>هل في القلم ما يكفي لجرعتي الآن؟</h3>
+      <p class="sub">أدِر مفتاح الجرعة إلى الأمام حتى يتوقف. الرقم الظاهر هو عدد الوحدات الباقية (إذا ظهر 700 فالباقي 700 وحدة أو أكثر).</p>
+      <div class="row">
+        <div class="field">
+          <label for="pen-left">الرقم الذي توقف عنده القلم</label>
+          <input type="number" id="pen-left" inputmode="numeric" min="0" max="700" step="10" value="70">
+        </div>
+        <div class="field">
+          <label for="pen-need">جرعتي الموصوفة (وحدة)</label>
+          <input type="number" id="pen-need" inputmode="numeric" min="10" max="1400" step="10" value="100">
+        </div>
+      </div>
+      <div id="pen-out" class="notice" aria-live="polite"></div>
+
+      <h3>كم أسبوعًا يكفيني القلم الجديد؟</h3>
+      <div class="row">
+        <div class="field">
+          <label for="pen-size">حجم القلم</label>
+          <select id="pen-size">
+            <option value="700">1 مل = 700 وحدة</option>
+            <option value="1050">1.5 مل = 1,050 وحدة</option>
+            <option value="2100" selected>3 مل = 2,100 وحدة</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="pen-weekly">جرعتي الأسبوعية الثابتة (وحدة)</label>
+          <input type="number" id="pen-weekly" inputmode="numeric" min="10" max="700" step="10" value="140">
+        </div>
+      </div>
+      <p id="pen-weeks" class="box" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="who-h">
+  <h2 id="who-h">قبل أن تبدأ</h2>
+  <div class="cols">
+    <div class="box">
+      <h3>لا تستخدم أويكلي إذا</h3>
+      <ul class="clean">
+        <li>كان السكر منخفضًا لديك الآن.</li>
+        <li>كانت لديك حساسية من أويكلي أو أحد مكوناته.</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>أخبر طبيبك إذا</h3>
+      <ul class="clean">
+        <li>كانت لديك مشكلة في الكبد أو الكلى.</li>
+        <li>كان لديك ضعف في القلب، أو تتناول أدوية من نوع بيوجليتازون.</li>
+        <li>كنتِ حاملًا، أو تخططين للحمل، أو ترضعين.</li>
+        <li>بدأت أي دواء جديد أو أعشاب أو فيتامينات.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="inject-h">
+  <h2 id="inject-h">كيف أحقن أويكلي؟</h2>
+  <p class="sub">يجب أن يعلّمك الطبيب أو الممرض أو الصيدلي استخدام القلم قبل أول حقنة.</p>
+  <ol class="steps">
+    <li><div><h3>جهّز القلم</h3><p>اغسل يديك. تأكد أن الملصق يقول أويكلي 700 وحدة/مل، وأن المحلول صافٍ وعديم اللون. ركّب إبرة جديدة، ثم انزع الغطاءين الخارجي والداخلي.</p></div></li>
+    <li><div><h3>افحص التدفق قبل كل حقنة</h3><p>أدِر المفتاح إلى 10 وحدات، ووجّه الإبرة إلى أعلى، واضغط الزر حتى يعود العداد إلى 0. يجب أن تظهر قطرة عند رأس الإبرة. إن لم تظهر، كرّر حتى 3 مرات، ثم غيّر الإبرة.</p></div></li>
+    <li><div><h3>اختر جرعتك</h3><p>أدِر المفتاح حتى يقابل رقمُ جرعتك المؤشر. اعتمد على الرقم الظاهر، لا على عدد الطقطقات.</p></div></li>
+    <li><div><h3>اختر مكان الحقن</h3><p>البطن (ابتعد 5 سم عن السرة)، أو أعلى الفخذ، أو أعلى الذراع. غيّر النقطة كل أسبوع، وتجنب الجلد المتكتل أو المتصلب أو المصاب.</p></div></li>
+    <li><div><h3>احقن</h3><p>أدخل الإبرة كاملة، واضغط الزر حتى يعود العداد إلى 0، ثم استمر بالضغط والإبرة في الجلد وعُدّ ببطء:</p><p class="six num">1 – 2 – 3 – 4 – 5 – 6</p><p>ثم اسحب الإبرة بشكل مستقيم.</p></div></li>
+    <li><div><h3>بعد الحقن</h3><p>انزع الإبرة وارمها في حاوية الأدوات الحادة. لا تحفظ القلم والإبرة مركّبة عليه، وأعد غطاء القلم لحمايته من الضوء. لا تشارك قلمك مع أحد، حتى لو غيّرت الإبرة.</p></div></li>
+  </ol>
+</section>
+
+<section aria-labelledby="hypo-h">
+  <h2 id="hypo-h">انخفاض السكر: اعرف العلامات</h2>
+  <p class="sub">هو أكثر الأعراض الجانبية شيوعًا مع أي إنسولين. ولأن مفعول أويكلي طويل، قد يستغرق التعافي من الانخفاض وقتًا أطول.</p>
+  <div class="cols">
+    <div class="box">
+      <h3>العلامات</h3>
+      <ul class="clean">
+        <li>دوخة أو خفة في الرأس</li><li>تعرّق ورجفة</li><li>جوع</li><li>تشوش الرؤية</li>
+        <li>صداع</li><li>تسارع ضربات القلب</li><li>قلق أو عصبية أو تقلب المزاج</li><li>ارتباك أو تلعثم في الكلام</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>ماذا أفعل؟</h3>
+      <ul class="clean">
+        <li>قِس السكر فورًا إن أمكن.</li>
+        <li>تناول سكرًا سريعًا مثل أقراص الجلوكوز أو العصير.</li>
+        <li>بعد أن تتحسن، كُل وجبة أو سناك وراقب السكر، لأن الانخفاض قد يعود.</li>
+        <li>لا تقُد السيارة إذا شعرت بالانخفاض.</li>
+        <li>أخبر طبيبك، فقد يحتاج إلى تعديل الجرعة.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="notice warn">
+    <strong>اطلب الإسعاف فورًا إذا ظهرت</strong>
+    <p>صعوبة في التنفس، أو تورم في الوجه أو اللسان أو الحلق، أو طفح على كامل الجسم، أو نعاس شديد، أو ارتباك شديد، أو فقدان للوعي.</p>
+  </div>
+</section>
+
+<section aria-labelledby="store-h">
+  <h2 id="store-h">حفظ القلم</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>حالة القلم</th><th>في الثلاجة (2 – 8 °م)</th><th>في الغرفة (أقل من 30 °م)</th></tr></thead>
+      <tbody>
+        <tr><td>جديد لم يُفتح</td><td>حتى تاريخ الانتهاء</td><td>حتى 12 أسبوعًا</td></tr>
+        <tr><td>قيد الاستخدام</td><td>حتى 12 أسبوعًا</td><td>حتى 12 أسبوعًا</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul class="clean">
+    <li>لا يتجاوز مجموع الوقت خارج الثلاجة 12 أسبوعًا، بما في ذلك فترة الاستخدام.</li>
+    <li>لا تجمّده ولا تضعه ملاصقًا لجهاز التبريد. لا تستخدم قلمًا تجمّد من قبل.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="se-h">
+  <h2 id="se-h">أعراض جانبية أخرى</h2>
+  <div class="cols">
+    <div class="box">
+      <h3>شائعة</h3>
+      <ul class="clean"><li>تفاعل في مكان الحقن (احمرار، حكة، تورم)</li><li>تغيرات في جلد مكان الحقن</li><li>حكة أو طفح جلدي</li><li>تورم في اليدين أو القدمين</li><li>زيادة في الوزن</li></ul>
+    </div>
+    <div class="box">
+      <h3>راجع طبيبك إذا</h3>
+      <ul class="clean"><li>ضيق في التنفس أو تعب أو تورم في الكاحلين أو زيادة مفاجئة في الوزن، خاصة إن كنت تتناول بيوجليتازون</li><li>تكرر انخفاض السكر</li><li>تغيّر نشاطك أو غذاؤك أو وزنك كثيرًا، أو مرضت</li></ul>
+    </div>
+  </div>
+  <p class="sub">تجنّب الكحول، ولا تقُد السيارة حتى تعرف كيف يؤثر الدواء عليك.</p>
+</section>
+
+<footer>
+  <p>المصدر: النشرة الدوائية الأمريكية لأويكلي (Awiqli, insulin icodec-abae) ونشرة المريض وتعليمات الاستخدام، Novo Nordisk، مراجعة 10/2026.</p>
+  <p>هذا الدليل للتثقيف فقط ولا يغني عن استشارة الطبيب أو الصيدلي. جرعتك يحددها طبيبك.</p>
+</footer>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
